@@ -5,6 +5,7 @@ import mainView from "./components/main";
 import detailView from "./components/detail.js";
 import handleSearchMovie from "./components/search.js";
 import removeSearchInput from "./functions/handleSearchBox.js";
+import clkRoute from "./functions/handleClickRoute.js";
 
 const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
@@ -58,21 +59,6 @@ const router = () => {
 
 window.addEventListener("popstate", router);
 
-const clkRoute = () => {
-    const changePage = document.querySelectorAll('.route');
-
-    changePage.forEach(element => {
-        element.addEventListener("click", event => {
-            event.preventDefault();
-            if (event.currentTarget.matches("[route]")) {
-                const pagePath = event.currentTarget.getAttribute("route")
-                navigateTo(pagePath);
-            }
-        })
-    });
-}
-
-
 function handleHomeClick() {
     const home = document.querySelector('.home');
 
@@ -83,5 +69,4 @@ function handleHomeClick() {
     })
 }
 
-
-export default router;
+export { router, navigateTo };

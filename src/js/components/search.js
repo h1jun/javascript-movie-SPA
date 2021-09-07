@@ -1,11 +1,12 @@
 import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList } from "../api/api.js"
+import clkRoute from "../functions/handleClickRoute.js";
 
 const handleSearchMovie = () => {
     const searchInput = document.querySelector(".search__input");
     const resultSearch = document.querySelector(".result__search");
     const searchMovieList = document.querySelector(".pop__movielist__result");
     let cache = '';
-    
+
     // 검색어 입력시 자동 입력 실행
     searchInput.addEventListener("keydown", (event) => {
         const beforeInput = searchInput.value;
@@ -14,8 +15,9 @@ const handleSearchMovie = () => {
 
     // 포커스 해제 시 검색 결과창 hidden
     searchInput.addEventListener("blur", (event) => {
-        resultSearch.classList.add("hidden");
-
+        setTimeout(() => {
+            resultSearch.classList.add("hidden");
+        }, 100);
     })
 
     const timer = (beforeInput) => {
@@ -31,6 +33,7 @@ const handleSearchMovie = () => {
         }, 500);
     }
 
+
     const loadData = async (input) => {
         // 이전 검색어랑 똑같으면 리턴 X
         if (cache === input) {
@@ -44,11 +47,17 @@ const handleSearchMovie = () => {
     const makeMovieList = (movieList) => {
         searchMovieList.innerHTML = "";
 
+        const movieListArr = []
         movieList.forEach(element => {
-            const li = document.createElement("li");
-            li.innerHTML = element.title;
-            searchMovieList.appendChild(li);
+            movieListArr.push(`
+                <li class="route cursor-pointer hover:bg-gray-700" route="/detail/${element.id}">
+                    ${element.title}
+                <li>
+            `);
         });
+
+        searchMovieList.innerHTML = movieListArr.join('');
+        clkRoute();
     }
 }
 
