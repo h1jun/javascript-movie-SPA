@@ -16,6 +16,7 @@ module.exports = {
         '80vh': '80vh',
       },
       padding: {
+        '7vh': '7vh',
         '15vh': '15vh',
       },
       zIndex: {
@@ -28,7 +29,10 @@ module.exports = {
         '1.3rem': '1.3rem',
         '2rem': '2rem',
         '3rem': '3rem',
-       }
+       },
+      maxWidth: {
+        '1200': '1200px',
+      }
     },
   },
   variants: {

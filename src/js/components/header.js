@@ -1,7 +1,7 @@
 const headerView = () => {
     const headerTemplate = `
-        <header class="my-0 mx-auto w-90vw xl:w-1200 bg-white z-20">
-            <div class="flex justify-between h-7vh items-center nav-menu">
+        <header class="fixed my-0 mx-auto w-full bg-white z-20">
+            <div class="flex justify-between h-7vh items-center max-w-1200 box-border my-0 mx-auto">
                 <div class="text-2xl font-semibold home" route="/">
                     <a href="/">Movie</a>
                 </div>
