@@ -17,7 +17,7 @@ const handleSearchMovie = () => {
     searchInput.addEventListener("blur", (event) => {
         setTimeout(() => {
             resultSearch.classList.add("hidden");
-        }, 100);
+        }, 200);
     })
 
     const timer = (beforeInput) => {
@@ -30,7 +30,7 @@ const handleSearchMovie = () => {
             } else {
                 resultSearch.classList.remove("hidden");
             }
-        }, 500);
+        }, 100);
     }
 
 

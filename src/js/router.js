@@ -6,6 +6,7 @@ import detailView from "./components/detail.js";
 import handleSearchMovie from "./components/search.js";
 import removeSearchInput from "./functions/handleSearchBox.js";
 import clkRoute from "./functions/handleClickRoute.js";
+import handleHeaderSticky from "./functions/handleHeaderSticky.js";
 
 const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
@@ -13,6 +14,7 @@ const navigateTo = (pagePath) => {
 }
 
 headerView();
+document.addEventListener('scroll', handleHeaderSticky, { passive: true });
 mainView();
 handleHomeClick();
 handleSearchMovie();
