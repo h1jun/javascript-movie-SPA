@@ -12,13 +12,13 @@ const detailView = async (movidID) => {
         </section>
         <section>
             <div class="flex my-0 mx-auto  w-90vw xl:w-1200">
-                <img src="https://image.tmdb.org/t/p/original/${detail.poster_path}" class="w-72 -mt-16 mr-8 z-10">
+                <img src="https://image.tmdb.org/t/p/original/${detail.poster_path}" class="w-72 -mt-16 mr-8 z-10 poster">
                 <div>
                     <div class="flex items-center">
-                        <h1 class="text-2rem font-bold my-6 mr-5">${detail.title}</h1>
+                        <h1 class="text-2rem font-bold my-6 mr-5 title">${detail.title}</h1>
                         <span class="text-1.3rem mr-5">${detail.release_date}</span>
-                        <button type="button" class="flex items-center justify-center bg-blue-400 py-2 px-4 rounded-lg">
-                            <i class="far fa-thumbs-up mr-3"></i>    
+                        <button type="button" class="flex items-center justify-center bg-blue-400 py-2 px-4 rounded-lg like__button" id="${detail.id}">
+                            <i class="far fa-thumbs-up mr-3"></i> 
                             <span>좋아요</span>
                         </button>
                     </div>

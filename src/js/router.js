@@ -4,8 +4,10 @@ import { genereMovieView } from "./components/genre.js";
 import mainView from "./components/main";
 import detailView from "./components/detail.js";
 import handleSearchMovie from "./components/search.js";
+import likeView from "./components/like.js";
 import removeSearchInput from "./functions/handleSearchBox.js";
 import clkRoute from "./functions/handleClickRoute.js";
+import handleLikeBtn from "./functions/handleLikeBtn.js";
 
 const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
@@ -30,8 +32,15 @@ const router = () => {
         },
         {
             path: "detail",
-            view: () => {
-                detailView(location.pathname.split("/")[2]);
+            view: async () => {
+                await detailView(location.pathname.split("/")[2]);
+                handleLikeBtn();
+            }
+        },
+        {
+            path: "like",
+            view: async () => {
+                likeView();
             }
         },
     ];

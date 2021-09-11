@@ -17,7 +17,7 @@ const headerView = () => {
                         </div>
                     </div>
                     <div>
-                        <a href="#" route="/detail/1234" class="route">좋아요</a>
+                        <a href="#" route="/like" class="route">좋아요</a>
                     </div>
                 </div>
             </div>
