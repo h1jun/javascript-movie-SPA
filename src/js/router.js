@@ -8,6 +8,7 @@ import likeView from "./components/like.js";
 import removeSearchInput from "./functions/handleSearchBox.js";
 import clkRoute from "./functions/handleClickRoute.js";
 import handleLikeBtn from "./functions/handleLikeBtn.js";
+import handleCancelLike from "./functions/handleCancelLike.js";
 
 const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
@@ -19,6 +20,7 @@ mainView();
 handleHomeClick();
 handleSearchMovie();
 removeSearchInput();
+handleClickLike();
 
 const router = () => {
     const routes = [
@@ -41,6 +43,8 @@ const router = () => {
             path: "like",
             view: async () => {
                 likeView();
+                handleCancelLike();
+                clkRoute();
             }
         },
     ];
@@ -72,6 +76,16 @@ function handleHomeClick() {
     const home = document.querySelector('.home');
 
     home.addEventListener('click', (event) => {
+        event.preventDefault();
+        const pagePath = event.currentTarget.getAttribute("route")
+        navigateTo(pagePath);
+    })
+}
+
+function handleClickLike() {
+    const like = document.querySelector('.like');
+
+    like.addEventListener('click', (event) => {
         event.preventDefault();
         const pagePath = event.currentTarget.getAttribute("route")
         navigateTo(pagePath);
