@@ -22,14 +22,14 @@ const detailView = async (movidID) => {
                             <span>좋아요</span>
                         </button>
                     </div>
-                    <div class="flex">
-                        <div class="">⭐ ${detail.vote_average}</div>
-                        <span class="">${detail.genres[0].name}</span>
-                        <span class="">${detail.runtime}분</span>
+                    <div class="flex mb-7">
+                        <div class="text-2xl mr-7">⭐ ${detail.vote_average}</div>
+                        <span class="text-2xl mr-7">${detail.genres[0].name}</span>
+                        <span class="text-2xl">${detail.runtime}분</span>
                     </div>
-                    <h2 class="">${detail.tagline}</h2>
+                    <h2 class="text-2xl font-bold mb-7">"${detail.tagline}"</h2>
                     <div>
-                        <p class="">${detail.overview}</p>
+                        <p class="leading-6">${detail.overview}</p>
                     </div>
                 </div>
             </div>
