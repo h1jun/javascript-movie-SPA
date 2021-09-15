@@ -4,13 +4,19 @@ const API_KEY = storeInfo.API_KEY;
 
 const getUpcomingMovie = async () => {
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=ko-KO&page=1`);
-        const dataCount = response.data.results.length; // 가져온 data 배열 길이
-        const rndNum = Math.floor(Math.random() * dataCount); // 랜덤 숫자
-        const movieId = response.data.results[rndNum].id;
+        while (true) {
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=ko-KO&page=1`);
+            const dataCount = response.data.results.length; // 가져온 data 배열 길이
+            const rndNum = Math.floor(Math.random() * dataCount); // 랜덤 숫자
+            const movieId = response.data.results[rndNum].id;
 
-        return movieId;
+            const detail = await getMovieDetail(movieId);
 
+            if (detail.tagline === "" || detail.tagline === " ") {
+                continue;
+            }
+            return movieId;
+        }
     } catch (error) {
         console.log(error);
     }
@@ -38,9 +44,9 @@ const getSearchMovie = async (keyword) => {
     }
 }
 
-const getMovieList = async () => {
+const getMovieList = async (genre) => {
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${storeInfo.genres["Action"]}/recommendations?api_key=${API_KEY}&language=ko&page=1`);
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${storeInfo.genres[genre]}/recommendations?api_key=${API_KEY}&language=ko&page=1`);
 
         const movieArr = [];
         const check = [];
@@ -60,8 +66,6 @@ const getMovieList = async () => {
         console.log(error);
     }
 }
-
-
 
 
 export { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList };

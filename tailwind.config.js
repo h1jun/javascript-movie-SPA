@@ -32,7 +32,10 @@ module.exports = {
        },
       maxWidth: {
         '1200': '1200px',
-      }
+      },
+      fontFamily: {
+        'sans': ['Noto Sans KR', 'sans-serif']
+       }
     },
   },
   variants: {

@@ -1,17 +1,10 @@
 import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList } from "../api/api.js"
 
 const upcomingView = async () => {
-    
-    // const main = document.createElement('main');
-    // document.querySelector('#root').append(main);
-
-    // const section = document.createElement('section');
-    
     const getMovieId = await getUpcomingMovie();
     const detail = await getMovieDetail(getMovieId);
     const picFullPath = `https://image.tmdb.org/t/p/original/${detail.backdrop_path}`; 
     
-    // console.log(detail);
     const upcomingTemplate = `
         <section>
             <div class="w-screen h-70vh absolute z-99- bg-cover bg-no-repeat bg-black backdrop-opacity-30" style="background-image: url(${picFullPath})">
@@ -29,8 +22,6 @@ const upcomingView = async () => {
     `;
 
     document.querySelector('main').innerHTML = upcomingTemplate;
-    // document.querySelector('main').append(section);
-
 }
 
 
