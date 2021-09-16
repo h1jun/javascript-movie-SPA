@@ -10,7 +10,7 @@ const genereMovieView = async () => {
         const movieList = await getMovieList(generApiName[i]);
 
         let genreMovieTemplate = `
-            <div class="my-0 mx-auto  w-90vw xl:w-1200">
+            <div class="my-0 mx-auto  w-90vw xl:w-1220">
                 <h2 class="text-3xl font-bold my-9">추천 ${genreName[i]} 영화!</h2>
                 <ul class="flex justify-between">
                     {{__movie_list_}}

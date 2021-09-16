@@ -51,7 +51,7 @@ const getMovieList = async (genre) => {
         const movieArr = [];
         const check = [];
 
-        while (movieArr.length !== 5) {
+        while (movieArr.length !== 6) {
             const dataCnt = response.data.results.length;
             const rndNum = Math.floor(Math.random() * dataCnt);
             if (check.indexOf(rndNum) === -1) {

@@ -1,7 +1,7 @@
 const likeView = () => {
 
     let movieLikeTemplate = `
-        <section class="my-0 mx-auto  w-90vw xl:w-1200">
+        <section class="my-0 mx-auto  w-90vw xl:w-1220">
             <h1 class="text-3xl font-bold my-9">내가 좋아하는 영화 모음</h1>
             <div>
                 <ul class="grid  grid-cols-4 gap-4">

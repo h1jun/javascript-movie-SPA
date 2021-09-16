@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       width: {
         '1200': '1200px',
+        '1220': '1220px',
         '90vw': '90vw',
         '60vw': '60vw',
       },
@@ -32,6 +33,7 @@ module.exports = {
        },
       maxWidth: {
         '1200': '1200px',
+        '1220': '1200px',
       },
       fontFamily: {
         'sans': ['Noto Sans KR', 'sans-serif']

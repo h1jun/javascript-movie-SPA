@@ -11,7 +11,7 @@ const detailView = async (movidID) => {
             <div class="w-screen h-60vh z-99- bg-cover bg-no-repeat bg-black backdrop-opacity-30 filter grayscale-80" style="background-image: url(${picFullPath})">
         </section>
         <section>
-            <div class="flex my-0 mx-auto  w-90vw xl:w-1200">
+            <div class="flex my-0 mx-auto  w-90vw xl:w-1220">
                 <img src="https://image.tmdb.org/t/p/original/${detail.poster_path}" class="w-72 -mt-16 mr-8 z-10 poster">
                 <div>
                     <div class="flex items-center">

@@ -11,7 +11,7 @@ const upcomingView = async () => {
                 <div class="bg-black opacity-30 w-screen h-70vh"></div>
             </div>
             
-            <div class="my-0 mx-auto  w-90vw xl:w-1200">
+            <div class="my-0 mx-auto  w-90vw xl:w-1220">
                 <div class="flex-auto flex flex-col justify-center items-center text-white h-70vh">
                     <div class="mb-32 text-7xl font-bold">${detail.title}</div>
                     <div class="text-4xl mb-24">"${detail.tagline}"</div>
