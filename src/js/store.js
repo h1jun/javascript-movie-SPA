@@ -5,6 +5,11 @@ const storeInfo = {
         Adventure: 12,
         Comedy: 35,
         Animation: 16,
+        Drama: 18,
+        Horror: 27,
+        SF: 878,
+        Comedy: 35,
+        Crime: 80,
     }
 }
 

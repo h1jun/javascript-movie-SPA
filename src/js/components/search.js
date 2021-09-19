@@ -1,5 +1,5 @@
 import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList } from "../api/api.js"
-import clkRoute from "../functions/handleClickRoute.js";
+import { clkRoute, genereClkRoute } from "../functions/handleClickRoute.js";
 
 const handleSearchMovie = () => {
     const searchInput = document.querySelector(".search__input");

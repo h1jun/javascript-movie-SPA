@@ -6,7 +6,7 @@ import detailView from "./components/detail.js";
 import handleSearchMovie from "./components/search.js";
 import likeView from "./components/like.js";
 import removeSearchInput from "./functions/handleSearchBox.js";
-import clkRoute from "./functions/handleClickRoute.js";
+import { clkRoute, genereClkRoute } from "./functions/handleClickRoute.js";
 import handleLikeBtn from "./functions/handleLikeBtn.js";
 import handleCancelLike from "./functions/handleCancelLike.js";
 
@@ -30,6 +30,7 @@ const router = () => {
                 await upcomingView();
                 await genereMovieView();
                 clkRoute();
+                genereClkRoute();
             }
         },
         {

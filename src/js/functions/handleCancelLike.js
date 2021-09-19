@@ -1,5 +1,5 @@
 import likeView from "../components/like";
-import clkRoute from "../functions/handleClickRoute.js";
+import { clkRoute, genereClkRoute } from "../functions/handleClickRoute.js";
 const handleCancelLike = () => {
     const cancelBtn = document.querySelectorAll('.cancel__buton');
 
