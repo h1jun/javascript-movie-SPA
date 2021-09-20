@@ -1,6 +1,7 @@
 import { headerView } from "./components/header.js";
 import { upcomingView } from "./components/upcoming.js";
 import { genereMovieView } from "./components/genre.js";
+import { footerView } from "./components/footer.js";
 import mainView from "./components/main";
 import detailView from "./components/detail.js";
 import handleSearchMovie from "./components/search.js";
@@ -14,13 +15,14 @@ const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
     router();
 }
-
 headerView();
 mainView();
 handleHomeClick();
 handleSearchMovie();
 removeSearchInput();
 handleClickLike();
+footerView();
+document.querySelector("#root").classList.add("text-primary")
 
 const router = () => {
     const routes = [

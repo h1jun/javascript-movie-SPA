@@ -6,7 +6,7 @@ const genereMovieView = async () => {
     section.classList.add('genere__section')
 
     const genreName = ['액션', '어드벤처', '코미디', '애니메이션', '드라마', '로맨스', '공포', '스릴러', 'SF', '코미디', '범죄'];
-    const generApiName = ['Action', 'Adventure', 'Comedy', 'Animation', 'Drama', 'Romance', 'Horror', 'Thriller', 'SF', 'Comedy',  'Crime'];
+    const generApiName = ['Action', 'Adventure', 'Comedy', 'Animation', 'Drama', 'Romance', 'Horror', 'Thriller', 'SF', 'Comedy', 'Crime'];
 
 
     let cnt = 0;
@@ -16,7 +16,7 @@ const genereMovieView = async () => {
         const movieList = await getMovieList(generApiName[cnt]);
 
         let genreMovieTemplate = `
-            <div class="my-0 mx-auto  w-90vw xl:w-1220">
+            <div class="my-0 mx-auto w-90vw xl:w-1220">
                 <div>
                     <h2 class="text-3xl font-bold my-9">추천 ${genreName[cnt]} 영화!</h2>
                     <ul class="flex justify-between">
@@ -34,8 +34,9 @@ const genereMovieView = async () => {
             movieLi.push(`
                 <li class="movie-detail cursor-pointer" id="${element.id}" route="/detail/${element.id}">
                     <a route="/detail/${element.id}">
-                        <div class= "w-44 h-60 bg-left bg-no-repeat bg-contain" style="background-image: url(${posterPath})"></div>
-                        <strong class="block">${element.title}</strong>
+                    <!-- <div class= "w-44 h-60 bg-left bg-no-repeat bg-contain" style="background-image: url(${posterPath})"></div> -->
+                        <img src="${posterPath}" class= "w-44 h-60 bg-left bg-no-repeat bg-contain"></img>
+                        <strong class="block w-44">${element.title}</strong>
                         <span class="block" class="inline-block">${year}</span>
                         <span class="block">⭐${vote_average}</span>
                     </a>
@@ -49,7 +50,7 @@ const genereMovieView = async () => {
             section.innerHTML = genreMovieList.join('');
             document.querySelector('main').appendChild(section);
         }
-        return genreMovieList.join('');
+        return genreMovieList;
     }
     await pageStart(cnt);
 
@@ -59,27 +60,28 @@ const genereMovieView = async () => {
     // 무한 스크롤
     const lastSection = document.querySelector('.genere__section');
 
-    const io = new IntersectionObserver(async (entry, observer) => {
-        const ioTarget = entry[0].target;
+    const io = new IntersectionObserver((entries, observer) => {
+        // const ioTarget = entries[0].target;
+        entries.forEach(async entry => {
+            if (entry.isIntersecting) {
+                io.unobserve(lastSection);
 
-        if (entry[0].isIntersecting) {
-            io.unobserve(lastSection);
-
-            cnt++;
-            console.log(cnt);
-            if (cnt === genreName.length) {
-                observer.disconnect();
-            } else {
-                const div = document.createElement('div');
-                div.innerHTML = await pageStart(cnt);
-                document.querySelector('.genere__section').appendChild(div);
-                io.observe(div);
+                cnt++;
+                if (cnt === genreName.length) {
+                    observer.disconnect();
+                } else {
+                    const div = document.createElement('div');
+                    div.innerHTML = await pageStart(cnt);
+                    document.querySelector('.genere__section').appendChild(div);
+                    io.observe(div);
+                }
             }
-        }
-    },
-        { threshold: 0.2 }
+        },
+            {
+                threshold: 0.3
+            }
         );
-
+    });
     io.observe(lastSection);
 }
 export { genereMovieView }

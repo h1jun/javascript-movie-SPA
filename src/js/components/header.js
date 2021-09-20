@@ -1,6 +1,6 @@
 const headerView = () => {
     const headerTemplate = `
-        <header class="fixed my-0 mx-auto w-full bg-white z-20">
+        <header class="fixed my-0 mx-auto w-full bg-white z-20 shadow-lg">
             <div class="flex justify-between h-7vh items-center max-w-1220 box-border my-0 mx-auto">
                 <div class="text-2xl font-semibold home" route="/">
                     <a href="/">Movie</a>
