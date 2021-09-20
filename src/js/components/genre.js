@@ -5,8 +5,8 @@ const genereMovieView = async () => {
     const section = document.createElement('section');
     section.classList.add('genere__section')
 
-    const genreName = ['액션', '어드벤처', '코미디', '애니메이션', '드라마', '공포', 'SF', '코미디', '범죄'];
-    const generApiName = ['Action', 'Adventure', 'Comedy', 'Animation', 'Drama', 'Horror', 'SF', 'Comedy',  'Crime'];
+    const genreName = ['액션', '어드벤처', '코미디', '애니메이션', '드라마', '로맨스', '공포', '스릴러', 'SF', '코미디', '범죄'];
+    const generApiName = ['Action', 'Adventure', 'Comedy', 'Animation', 'Drama', 'Romance', 'Horror', 'Thriller', 'SF', 'Comedy',  'Crime'];
 
 
     let cnt = 0;
@@ -49,7 +49,6 @@ const genereMovieView = async () => {
             section.innerHTML = genreMovieList.join('');
             document.querySelector('main').appendChild(section);
         }
-
         return genreMovieList.join('');
     }
     await pageStart(cnt);
@@ -78,7 +77,8 @@ const genereMovieView = async () => {
             }
         }
     },
-        { threshold: 0.2 });
+        { threshold: 0.2 }
+        );
 
     io.observe(lastSection);
 }
