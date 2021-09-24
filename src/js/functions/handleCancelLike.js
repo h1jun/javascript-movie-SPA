@@ -18,7 +18,6 @@ const handleCancelLike = () => {
 
 
     cancelBtn.forEach(element => {
-        console.log(element);
         element.addEventListener('click', event => {
             event.preventDefault();
             movieIds = movieIds.filter((movieId) => movieId.id !== event.target.id);

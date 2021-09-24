@@ -26,6 +26,10 @@ const likeView = () => {
         `);
     
     });
+
+    if (movieLi.length=== 0) {
+        movieLi.push(`<li>좋아하는 영화가 없습니다.<li>`);
+    }
     
     movieLikeTemplate = movieLikeTemplate.replace('{{__like_movie_list__}}', movieLi.join(''))
     

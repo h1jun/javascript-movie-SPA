@@ -43,11 +43,13 @@ module.exports = {
       },
       textColor: {
         'primary': '#222',
-      }
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

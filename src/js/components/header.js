@@ -11,7 +11,7 @@ const headerView = () => {
                         <label for="search" class="w-48 mr-28">
                         <i class="fas fa-search"></i>
                         </label>
-                        <div class="result__search hidden absolute top-16 overflow-y-scroll bg-white rounded-2xl py-5 px-7 z-10 h-72">
+                        <div class="result__search hidden absolute top-16 overflow-y-scroll bg-white rounded-2xl py-5 px-7 z-10 h-72  scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-300">
                             <ul class="pop__movielist__result">
                             </ul>
                         </div>

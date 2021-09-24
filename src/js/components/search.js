@@ -50,12 +50,16 @@ const handleSearchMovie = () => {
         const movieListArr = []
         movieList.forEach(element => {
             movieListArr.push(`
-                <li class="route cursor-pointer hover:bg-gray-700" route="/detail/${element.id}">
+                <li class="route cursor-pointer hover:bg-gray-300 rounded-2xl py-2 px-2" route="/detail/${element.id}">
                     ${element.title}
                 <li>
             `);
         });
 
+        if(movieListArr.length === 0) {
+            movieListArr.push(`<li>검색 결과가 없습니다.<li>`)
+        }
+        
         searchMovieList.innerHTML = movieListArr.join('');
         clkRoute();
     }
