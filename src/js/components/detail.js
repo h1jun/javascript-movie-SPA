@@ -1,4 +1,4 @@
-import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList } from "../api/api.js"
+import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList, getCredits } from "../api/api.js"
 
 const detailView = async (movidID) => {
     const detail = await getMovieDetail(movidID)
@@ -35,7 +35,7 @@ const detailView = async (movidID) => {
     
         </section>
     `;
-    
+    console.log(await getCredits(movidID));
     document.querySelector('main').innerHTML = movieDetailTemplate;
 
 }

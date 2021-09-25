@@ -67,5 +67,16 @@ const getMovieList = async (genre) => {
     }
 }
 
+const getCredits = async (movieId) => {
+    try {
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`);
 
-export { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList };
+        return response.data
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList, getCredits };
