@@ -2,6 +2,7 @@ import { getUpcomingMovie, getMovieDetail, getSearchMovie, getMovieList, getCred
 
 const detailView = async (movidID) => {
     const detail = await getMovieDetail(movidID)
+    let credits = await getCredits(movidID);
     let picFullPath;
     detail.backdrop_path === null ? picFullPath = "https://via.placeholder.com/1470x600/4E4D53/FFFFFF/?text=NO%20Image" : picFullPath = `https://image.tmdb.org/t/p/original/${detail.backdrop_path}`;   
     
@@ -23,7 +24,7 @@ const detailView = async (movidID) => {
                     </div>
                     <div class="flex mb-7">
                         <div class="text-2xl mr-7">⭐ ${detail.vote_average}</div>
-                        <span class="text-2xl mr-7">${detail.genres[0].name}</span>
+                        <span class="text-2xl mr-7"> {{__genres__}} </span>
                         <span class="text-2xl">${detail.runtime}분</span>
                     </div>
                     <h2 class="text-2xl font-bold mb-7">"${detail.tagline === "" ? "정보가 없습니다.": detail.tagline}"</h2>
@@ -32,10 +33,42 @@ const detailView = async (movidID) => {
                     </div>
                 </div>
             </div>
-    
+        </section>
+        <section class="mt-20">
+            <div class="my-0 mx-auto w-90vw xl:w-1220">
+                <h2 class="text-4xl font-bold my-12">출연진</h2>
+                <ul class="flex">
+                    {{__credits__}}
+                </ul>
+            </div>
         </section>
     `;
-    console.log(await getCredits(movidID));
+
+    // 영화 장르
+    let genresArr = [];
+
+    detail.genres.forEach(genre => {
+        genresArr.push(' ' + genre.name + ' ')
+        genresArr.push('|')
+    });
+    genresArr.pop()
+    movieDetailTemplate = movieDetailTemplate.replace('{{__genres__}}', genresArr.join(''))
+
+
+    // 출연진
+    let creditsArr = []
+    console.log(credits.cast);
+    credits.cast.forEach(credit => {
+        creditsArr.push(`
+            <li class="my-0 mx-auto flex flex-col items-center text-center">
+                <img src="https://image.tmdb.org/t/p/original/${credit.profile_path}" class="w-24">
+                <strong class="block w-44">${credit.name}</strong>
+                <span>${credit.character} 역</span>
+            </li>
+        `)
+    })
+    movieDetailTemplate = movieDetailTemplate.replace('{{__credits__}}', creditsArr.join(''))
+
     document.querySelector('main').innerHTML = movieDetailTemplate;
 
 }

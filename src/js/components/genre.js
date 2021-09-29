@@ -34,7 +34,6 @@ const genereMovieView = async () => {
             movieLi.push(`
                 <li class="movie-detail cursor-pointer" id="${element.id}" route="/detail/${element.id}">
                     <a route="/detail/${element.id}">
-                        <!-- <div class= "w-44 h-60 bg-left bg-no-repeat bg-contain" style="background-image: url(${posterPath})"></div> -->
                         <img src="${posterPath}" class= "w-44 h-60 bg-left bg-no-repeat bg-contain"></img>
                         <strong class="block w-44">${element.title}</strong>
                         <span class="block" class="inline-block">${year}</span>
