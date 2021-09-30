@@ -44,6 +44,9 @@ module.exports = {
       textColor: {
         'primary': '#222',
       },
+      transitionProperty: {
+        'left': 'left',
+      },
     },
   },
   variants: {

@@ -10,6 +10,7 @@ import removeSearchInput from "./functions/handleSearchBox.js";
 import { clkRoute, genereClkRoute } from "./functions/handleClickRoute.js";
 import handleLikeBtn from "./functions/handleLikeBtn.js";
 import handleCancelLike from "./functions/handleCancelLike.js";
+import handleCreditSlide from "./functions/handleCreditSlide.js";
 
 const navigateTo = (pagePath) => {
     history.pushState(null, null, window.location.origin + pagePath);
@@ -40,6 +41,7 @@ const router = () => {
             view: async () => {
                 await detailView(location.pathname.split("/")[2]);
                 handleLikeBtn();
+                handleCreditSlide();
             }
         },
         {

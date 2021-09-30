@@ -35,13 +35,19 @@ const detailView = async (movidID) => {
             </div>
         </section>
         <section class="mt-20">
-            <div class="my-0 mx-auto w-90vw xl:w-1220">
-                <h2 class="text-4xl font-bold my-12">출연진</h2>
-                <ul class="flex">
-                    {{__credits__}}
-                </ul>
+            <div class="flex flex-col my-0 mx-auto w-90vw h-64 xl:w-1220 overflow-hidden">
+                <h2 class="text-4xl font-bold">출연진</h2>
+                <div class="relative">
+                    <ul class="absolute slides flex left-0 top-0 transition-left delay-500 ease-out">
+                        {{__credits__}}
+                    </ul>
+                </div>
             </div>
         </section>
+        <div class="relative">
+            <i class="prev fas fa-angle-double-left absolute -left-5 bottom-24 cursor-pointer"></i>
+            <i class="next fas fa-angle-double-right cursor-pointer"></i>
+        </div>
     `;
 
     // 영화 장르
@@ -63,7 +69,7 @@ const detailView = async (movidID) => {
             <li class="my-0 mx-auto flex flex-col items-center text-center">
                 <img src="https://image.tmdb.org/t/p/original/${credit.profile_path}" class="w-24">
                 <strong class="block w-44">${credit.name}</strong>
-                <span>${credit.character} 역</span>
+                <span class="text-xs text-gray-800">${credit.character} 역</span>
             </li>
         `)
     })
