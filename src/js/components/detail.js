@@ -35,19 +35,19 @@ const detailView = async (movidID) => {
             </div>
         </section>
         <section class="mt-20">
-            <div class="flex flex-col my-0 mx-auto w-90vw h-64 xl:w-1220 overflow-hidden">
-                <h2 class="text-4xl font-bold">출연진</h2>
-                <div class="relative">
+            <div class="flex flex-col my-0 mx-auto w-90vw h-72 xl:w-1220">
+                <h2 class="text-4xl font-bold mb-11">출연진</h2>
+                <div class="relative h-72 w-90vw xl:w-1220 overflow-hidden">
                     <ul class="absolute slides flex left-0 top-0 transition-left delay-500 ease-out">
                         {{__credits__}}
                     </ul>
                 </div>
+                <div class="relative">
+                    <i class="prev fas fa-angle-double-left absolute cursor-pointer -left-4 bottom-28"></i>
+                    <i class="next fas fa-angle-double-right absolute cursor-pointer -right-4 bottom-28"></i>
+                </div>
             </div>
         </section>
-        <div class="relative">
-            <i class="prev fas fa-angle-double-left absolute -left-5 bottom-24 cursor-pointer"></i>
-            <i class="next fas fa-angle-double-right cursor-pointer"></i>
-        </div>
     `;
 
     // 영화 장르
