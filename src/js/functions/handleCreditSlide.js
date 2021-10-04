@@ -24,61 +24,36 @@ const handleCreditSlide = () => {
 
         if (currentSlideCnt === slideCount) {
             // 처음으로 돌아가기
-            console.log("1");
             currentSlidePage = 1;
             currentSlideCnt = slideItems;
             moveSlide(0);
         } else if (currentSlidePage <= slidePage) {
-            console.log("2");
             moveSlide(currentIdx + slideItems);
             currentSlideCnt += slideItems;
         } else {
             // 남은 items까지만 더해주기
-            console.log("3");
             moveSlide(currentIdx + (slideCount % slideItems));
             currentSlideCnt += (slideCount % slideItems);
         }
     });
 
-    console.log(currentSlidePage);
-    console.log(slideCount);
+
     prevBtn.addEventListener('click', () => {
+        // 첫 페이지에서 뒤로가기 클릭 맨 뒤로 이동
         if (currentSlidePage === 1) {
-            console.log('5');
             currentSlidePage = slidePage + 1;
             currentSlideCnt = slideCount;
             moveSlide(slideCount - slideItems)
         } else if (currentSlidePage === slidePage + 1) {
-            console.log("5-1");
-            console.log(currentSlideCnt);
-            moveSlide(currentSlideCnt - (slideCount % slideItems));
+            // 맨 뒤에서 클릭 시 (slideCount % slideItems) 만큼 뒤로가기
+            moveSlide(currentIdx -  (slideCount % slideItems));
             currentSlideCnt -= (slideCount % slideItems);
+            currentSlidePage--;
         } else if (currentSlidePage <= slidePage) {
-            console.log('6');
             moveSlide(currentIdx - slideItems);
             currentSlideCnt -= slideItems;
-        }
-        else if (currentSlideCnt === slideCount) {
-            console.log('4');
-            moveSlide(currentIdx - (slideCount % slideItems));
-            currentSlideCnt -= (slideCount % slideItems);
-        }
-        if (currentSlidePage !== 1) {
             currentSlidePage--;
         }
-
-        // if (currentSlidePage < 0) {
-        //     // 끝 페이지로 돌아가기
-        //     currentSlidePage = slidePage + 1;
-        //     currentSlideCnt = slideItems;
-        //     moveSlide(slideCount);
-        // } else if (currentSlidePage < 0) {
-        //     moveSlide(currentIdx - slideItems);
-        //     currentSlideCnt -= slideItems;
-        // } else {
-        //     moveSlide(currentIdx - 1);
-        //     currentSlideCnt--;
-        // }
     });
 }
 
