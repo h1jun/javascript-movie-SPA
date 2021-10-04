@@ -6,7 +6,7 @@ const handleCreditSlide = () => {
 
     let currentIdx = 0;
     let slideCount = slide.length;
-    let slideWidth = 176;
+    let slideWidth = slide[0].clientWidth;
     let slideItems = 7
     let currentSlidePage = 1
     let currentSlideCnt = slideItems;

@@ -67,7 +67,7 @@ const detailView = async (movidID) => {
     credits.cast.forEach(credit => {
         creditsArr.push(`
             <li class="my-0 mx-auto flex flex-col items-center text-center">
-                <img src="https://image.tmdb.org/t/p/original/${credit.profile_path}" class="w-24">
+                <img src=${credit.profile_path === null ? "https://via.placeholder.com/96x144/B2B2B2/FFFFFF/?text=NO%20Image" : `https://image.tmdb.org/t/p/original/${credit.profile_path}`} class="w-24">
                 <strong class="block w-44">${credit.name}</strong>
                 <span class="text-xs text-gray-800">${credit.character} 역</span>
             </li>
